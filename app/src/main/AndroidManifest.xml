@@ -28,6 +28,7 @@
             android:name=".LogActivity"
             android:exported="true" >
         </activity>
+        <receiver android:name=".DismissReceiver"/>
     </application>
 
 </manifest>

@@ -103,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
     // Create the PendingIntent
         PendingIntent viewPendingIntent = PendingIntent.getActivity(
                 this, 0, videoIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent dismissIntent = new Intent(this, DismissReceiver.class);
+        PendingIntent dismissPendingIntent = PendingIntent.getBroadcast(
+                this, 0, dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "ch_test")
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle("IDEA Hacks 2019")
@@ -110,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setContentIntent(pendingIntent)
                 .addAction(R.drawable.ic_notifications_black_24dp, getString(R.string.notif_view),
-                        viewPendingIntent);
+                        viewPendingIntent)
+                .addAction(R.drawable.ic_notifications_black_24dp, getString(R.string.notif_dismiss),
+                        dismissPendingIntent);
 
         // notificationId is a unique int for each notification that you must define
         notificationManager.notify(0, builder.build());
