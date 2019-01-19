@@ -23,7 +23,10 @@
             android:name=".VideoActivity"
             android:launchMode="singleTask"
             android:taskAffinity=""
-            android:excludeFromRecents="true">
+            android:excludeFromRecents="true" />
+        <activity
+            android:name=".LogActivity"
+            android:exported="true" >
         </activity>
     </application>
 

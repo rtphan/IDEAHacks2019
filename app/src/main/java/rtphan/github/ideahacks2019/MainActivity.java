@@ -20,7 +20,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+    private LogFragment logFragment;
+    private StatusFragment statusFragment;
+    private CustomViewPager mViewPager;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -29,13 +31,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    loadStatusFragment();
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_log:
+                    loadLogFragment();
                     return true;
             }
             return false;
@@ -47,7 +46,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage = findViewById(R.id.message);
+        logFragment = new LogFragment();
+        statusFragment = new StatusFragment();
+
+        mViewPager = findViewById(R.id.fl_fragment_frame);
+        ViewPagerAdapter adapter = new ViewPagerAdapter (MainActivity.this.getSupportFragmentManager());
+        adapter.addFragment(logFragment, "log");
+        adapter.addFragment(statusFragment, "status");
+//		adapter.addFragment(new MapsActivity(), "title");
+        mViewPager.setAdapter(adapter);
+
+        loadStatusFragment();
+
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         Button test = findViewById(R.id.bt_test);
@@ -57,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
                 createNotification();
             }
         });
+    }
+
+    private void loadLogFragment(){
+        mViewPager.setCurrentItem(1);
+    }
+
+    private void loadStatusFragment(){
+        mViewPager.setCurrentItem(0);
     }
 
     public void createNotification() {
@@ -93,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .addAction(R.drawable.ic_notifications_black_24dp, getString(R.string.notif_view),
                         viewPendingIntent);
+
         // notificationId is a unique int for each notification that you must define
         notificationManager.notify(0, builder.build());
 

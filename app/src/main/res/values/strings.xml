@@ -2,7 +2,7 @@
     <string name="app_name">IDEAHacks2019</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_log">Logs</string>
     <string name="channel_name">Channel</string>
     <string name="channel_description">Description</string>
     <string name="notif_view">View</string>
