@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "685401144170",
+    "firebase_url": "https://idea-hacks-2019.firebaseio.com",
+    "project_id": "idea-hacks-2019",
+    "storage_bucket": "idea-hacks-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685401144170:android:3a0274a3a980bbec",
+        "android_client_info": {
+          "package_name": "rtphan.github.ideahacks2019"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685401144170-3ngmo920adm1nlnlsakipjcmf0vjmp0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "rtphan.github.ideahacks2019",
+            "certificate_hash": "4730c3af8dea44c015c34e9bf738d8f613527570"
+          }
+        },
+        {
+          "client_id": "685401144170-ubhf236jnhq0tm8b2191vvajeqcdujsu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf6a7Yc0t7YR0thg556T5zDQ6MbFq2eOs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685401144170-ubhf236jnhq0tm8b2191vvajeqcdujsu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

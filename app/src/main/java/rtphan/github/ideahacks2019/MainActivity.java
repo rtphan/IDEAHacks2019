@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager = findViewById(R.id.fl_fragment_frame);
         ViewPagerAdapter adapter = new ViewPagerAdapter (MainActivity.this.getSupportFragmentManager());
-        adapter.addFragment(logFragment, "log");
         adapter.addFragment(statusFragment, "status");
+        adapter.addFragment(logFragment, "log");
 //		adapter.addFragment(new MapsActivity(), "title");
         mViewPager.setAdapter(adapter);
 

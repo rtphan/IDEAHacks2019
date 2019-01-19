@@ -24,10 +24,6 @@
             android:launchMode="singleTask"
             android:taskAffinity=""
             android:excludeFromRecents="true" />
-        <activity
-            android:name=".LogActivity"
-            android:exported="true" >
-        </activity>
         <receiver android:name=".DismissReceiver"/>
     </application>
 

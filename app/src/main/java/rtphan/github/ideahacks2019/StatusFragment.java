@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class StatusFragment extends android.support.v4.app.Fragment {
     private RecyclerView mRoomView;
     private ProgressBar mPBar;
-    //private FirebaseDatabase mDatabase;
+    private FirebaseDatabase mDatabase;
     //private DatabaseReference restroomsRef;
     //private ArrayList<Restroom> RestroomList;
     //private NearbyAdapter mAdaptor;
@@ -21,10 +23,9 @@ public class StatusFragment extends android.support.v4.app.Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_log, container, false);
-
-        /*mDatabase = FirebaseDatabase.getInstance();
-        RestroomList = new ArrayList<>(); //make a new array list
+        View view = inflater.inflate(R.layout.fragment_status, container, false);
+        mDatabase = FirebaseDatabase.getInstance();
+        /* RestroomList = new ArrayList<>(); //make a new array list
         restroomsRef = mDatabase.getReference("restrooms"); //grab all the restrooms
         RestroomList.clear(); //clear array list
 
