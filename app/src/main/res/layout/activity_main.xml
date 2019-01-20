@@ -43,6 +43,23 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"/>
+    <Button
+        android:id="@+id/bt_listen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Enable Sensor"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/bt_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

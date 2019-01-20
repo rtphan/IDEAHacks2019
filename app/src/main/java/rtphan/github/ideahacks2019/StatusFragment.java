@@ -2,19 +2,30 @@ package rtphan.github.ideahacks2019;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class StatusFragment extends android.support.v4.app.Fragment {
     private RecyclerView mRoomView;
     private ProgressBar mPBar;
     private FirebaseDatabase mDatabase;
+    private TextView listen_tv;
+    private DatabaseReference listen;
     //private DatabaseReference restroomsRef;
     //private ArrayList<Restroom> RestroomList;
     //private NearbyAdapter mAdaptor;
@@ -24,7 +35,24 @@ public class StatusFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_status, container, false);
-        mDatabase = FirebaseDatabase.getInstance();
+        listen = mDatabase.getReference("listen");
+        listen_tv = (TextView) getView().findViewById(R.id.listen);
+        mDatabase.add {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mDatabase = FirebaseDatabase.getInstance();
+                TextView txt_listen = findViewById(R.id.listen);
+                Integer value = dataSnapshot.getValue(Integer.class);
+                if (value == 1);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.w("LogFragment", "loadLog:onCancelled", databaseError.toException());
+            }
+        };
         /* RestroomList = new ArrayList<>(); //make a new array list
         restroomsRef = mDatabase.getReference("restrooms"); //grab all the restrooms
         RestroomList.clear(); //clear array list
@@ -34,7 +62,6 @@ public class StatusFragment extends android.support.v4.app.Fragment {
 
         //initialize pull to refresh (low priority)
         initLoad();*/
-
         return view;
     }
 
